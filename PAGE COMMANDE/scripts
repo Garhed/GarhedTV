@@ -1,0 +1,51 @@
+let cart = [];
+let totalPrice = 0;
+
+function addToCart(productName, productPrice, quantityId) {
+    const quantity = document.getElementById(quantityId).value;
+    const item = {
+        name: productName,
+        price: productPrice,
+        quantity: parseInt(quantity)
+    };
+    cart.push(item);
+    updateCart();
+}
+
+function updateCart() {
+    const cartItems = document.getElementById('cartItems');
+    cartItems.innerHTML = '';
+    totalPrice = 0;
+    cart.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - ${item.price}€ x ${item.quantity}`;
+        cartItems.appendChild(listItem);
+        totalPrice += item.price * item.quantity;
+    });
+    document.getElementById('totalPrice').textContent = totalPrice;
+}
+
+function submitOrder() {
+    // Here you would handle the order submission, like sending it to your server
+    alert('Commande soumise');
+    return false; // Prevent form from submitting normally
+}
+
+// PayPal integration
+paypal.Buttons({
+    createOrder: function(data, actions) {
+        return actions.order.create({
+            purchase_units: [{
+                amount: {
+                    value: totalPrice
+                }
+            }]
+        });
+    },
+    onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name);
+            // Here you can handle post-transaction actions like saving the order to your database
+        });
+    }
+}).render('#paypal-button-container');
