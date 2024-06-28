@@ -4,12 +4,19 @@ body {
     margin: 0;
     padding: 0;
 }
+.logo-container img {
+     background-color: #81c6ee;
+     
+}
+
 
 header {
+    display: flex;
     background-color: #81c6ee;
     color: white;
-    padding: 10px 0;
+    padding: 0;
     text-align: center;
+    flex-direction: column;
 }
 
 header nav ul {
@@ -23,39 +30,71 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: white;
+    color: rgb(8, 8, 8);
     text-decoration: none;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
 }
 
 #hero {
-    background: #f4f4f4;
-    padding: 50px 20px;
+    
+    background: white;
     text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
 }
 
 #content, #products {
+    background: white;
     padding: 20px;
 }
 
-.video-grid, .product-grid {
+.video-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
 
-.video-item, .product-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 200px;
-    text-align: center;
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: column;
 }
+.video-item {
+    padding: 0px;
+    text-align: center;
+
+    
+    > a h4 {
+        text-decoration: none;
+        color: rgb(8, 8, 8);
+        display: flex;
+    }
+}
+
+.product-item {
+    padding: 0px;
+    text-align: center;
+    width: auto;
+    height: auto;
+    
+
+    
+    > a h4 {
+        text-decoration: none;
+        color: rgb(8, 8, 8);
+        display: flex;
+    }
+}
+
 
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 0px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -69,6 +108,7 @@ footer {
 .thumbnail-link a {
     text-decoration: none;
     color: #000;
+
 }
 
 .thumbnail-link img {
@@ -84,8 +124,43 @@ footer {
 }
 
 .thumbnail-link span {
-    display: block;
+    display: flex;
     margin-top: 10px;
     font-size: 1.2em;
     font-weight: bold;
+    justify-content: center;
+}
+
+/* ajout perso */
+
+.product-link {
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+}
+
+.product-link a {
+    text-decoration: none;
+    color: #000;
+
+}
+
+.product-link img {
+    display: block;
+    width: auto; /* Ajustez la largeur selon vos besoins */
+    height: auto;
+    border-radius: 10px; /* Optionnel : pour arrondir les coins de l'image */
+    transition: transform 0.3s;
+}
+
+.product-link img:hover {
+    transform: scale(1.05); /* Agrandir légèrement l'image au survol */
+}
+
+.product-link span {
+    display: flex;
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    justify-content: center;
 }
