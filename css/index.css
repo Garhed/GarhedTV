@@ -90,6 +90,14 @@ header nav ul li a {
 }
 
 
+.video-item .thumbnail-link {
+    text-decoration: none;
+}
+
+.video-item .thumbnail-link  h4 {
+    color: #000;
+} 
+
 footer {
     background-color: #333;
     color: white;
